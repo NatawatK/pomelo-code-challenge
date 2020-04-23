@@ -1,0 +1,22 @@
+{
+  "name": "pomelo-nodejs-test",
+  "version": "1.0.0",
+  "description": "This is take home coding challenge for applying Backend Developer at Pomelo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "hapi.js",
+    "pomelo"
+  ],
+  "author": "Natawat Kwanpum",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
