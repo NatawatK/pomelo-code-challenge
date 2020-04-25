@@ -4,8 +4,11 @@
   "description": "This is take home coding challenge for applying Backend Developer at Pomelo",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "test": "jest",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir dist --ignore node_modules",
+    "p": "prettier --write 'src/**/*.js'",
+    "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}"
   },
   "keywords": [
     "hapi.js",
@@ -14,9 +17,24 @@
   "author": "Natawat Kwanpum",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^19.1.1"
+    "@hapi/boom": "^9.1.0",
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/vision": "^6.0.0",
+    "handlebars": "^4.7.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^25.4.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^25.4.0",
+    "nodemon": "^2.0.3",
+    "onchange": "^6.1.1",
+    "prettier": "^2.0.5"
   }
 }
