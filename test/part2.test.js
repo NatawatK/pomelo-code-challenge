@@ -16,7 +16,7 @@ afterAll((done) => {
 })
 
 
-test('should return page1 if there are no query params(page)', async function () {
+test('should return 200OK if there are no query params(page)', async function () {
   const options = {
     method: 'GET',
     url: '/part2',
@@ -45,3 +45,13 @@ test('should redirect to page1 if input page is less than 1', async function () 
     expect(data.statusCode).toBe(302)
     expect(data.headers.location).toBe('?page=100')
   })
+
+  test('should return 200OK when requesting for last page(100)', async function () {
+    const options = {
+      method: 'GET',
+      url: '/part2?page=100',
+    }
+    const data = await server.inject(options)
+    expect(data.statusCode).toBe(200)
+  })
+
