@@ -15,6 +15,7 @@ afterAll((done) => {
   server.stop()
 })
 
+
 test('should fail in adding user due to no payload', async function () {
   const options = {
     method: 'POST',
@@ -23,6 +24,7 @@ test('should fail in adding user due to no payload', async function () {
   const data = await server.inject(options)
   expect(data.statusCode).toBe(400)
   expect(data.result.message).toBe('Invalid Payload')
+
 })
 
 test('should get proper response', async function () {

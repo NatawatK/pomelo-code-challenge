@@ -4,7 +4,7 @@
   "description": "This is take home coding challenge for applying Backend Developer at Pomelo",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "ENVIRONMENT=test jest",
     "dev": "nodemon --exec babel-node src/server.js",
     "build": "babel src --out-dir dist --ignore node_modules",
     "p": "prettier --write 'src/**/*.js'",
