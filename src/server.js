@@ -2,6 +2,7 @@
 
 const Hapi = require('@hapi/hapi');
 const Boom = require('@hapi/boom');
+const axios = require('axios')
 
 import * as algorithm from './algorithm'
 
@@ -34,13 +35,17 @@ server.route({
     }
 });
 
-// Part 1 route
+// Part 2 route
 server.route({
     method: 'GET',
-    path: '/part2/{page}',
-    handler: (request, h) => {
+    path: '/part2',
+    handler: async (request, h) => {
+        const page = request.query.page || 1 
+        const resp = await axios.get(`https://api.github.com/search/repositories?q=nodejs&per_page=10&page=${page}`)
+        const repos = resp.data.items || []
         return h.view('githubRepoSearch', {
-            page: request.params.page
+            page: page,
+            repoItems: repos
         })
     }
 });
@@ -65,7 +70,7 @@ const init = async () => {
         },
         relativeTo: __dirname,
         path: 'templates',
-        // helpersPath: 'helpers'
+        helpersPath: 'helpers'
     });
 
 

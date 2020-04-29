@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Pagination links */
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        /* Style the active/current link */
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        /* Add a grey background color on mouse-over */
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Repository search from github API on page {{page}}</h1>
+    <table style="width:100%">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>description</th>
+            <th>URL</th>
+        </tr>
+        {{#each repoItems}}
+        <tr>
+            <td>{{ this.id }}</td>
+            <td>{{ this.name }}</td>
+            <td>{{ this.description }}</td>
+            <td>{{ link this.full_name this.svn_url }}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+
+    {{#pagination page 100 5}}
+    <div class="pagination">
+        {{#unless startFromFirstPage}}
+        <a href="?page=1">&lt;</a>
+        {{/unless}}
+
+        {{#each pages}}
+        {{#if isCurrent}}
+        <a class='active' href="?page={{page}}">{{page}}</a>
+        {{/if}}
+        {{#unless isCurrent}}
+        <a href="?page={{page}}">{{page}}</a>
+        {{/unless}}
+        {{/each}}
+
+        {{#unless endAtLastPage}}
+        <a href="?page=100">&gt;</a>
+        {{/unless}}
+    </div>
+    {{/pagination}}
+
+</body>
+
+</html>
