@@ -46,12 +46,14 @@
             <td>{{ this.id }}</td>
             <td>{{ this.name }}</td>
             <td>{{ this.description }}</td>
+            <!-- use link helper in helpers/link.js -->
             <td>{{ link this.full_name this.svn_url }}</td>
         </tr>
         {{/each}}
     </table>
 
 
+    <!-- This part render by pagination helpers -->
     {{#pagination page 100 5}}
     <div class="pagination">
         {{#unless startFromFirstPage}}

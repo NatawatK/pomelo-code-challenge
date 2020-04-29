@@ -1,5 +1,7 @@
 // pagination helper from this guy https://gist.github.com/trantorLiu/5924389
 
+
+//This helper help to generate pagination in handle bar
 module.exports = function(currentPage, totalPage, size, options) {
     var startPage, endPage, context;
   
@@ -7,10 +9,10 @@ module.exports = function(currentPage, totalPage, size, options) {
       options = size;
       size = 5;
     }
-    console.log(size, totalPage)
+
     startPage = currentPage - Math.floor(size / 2);
     endPage = parseInt(currentPage) + Math.floor(size / 2);
-    console.log(startPage, endPage)
+
     if (startPage <= 0) {
       endPage -= (startPage - 1);
       startPage = 1;

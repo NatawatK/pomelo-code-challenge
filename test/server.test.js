@@ -1,7 +1,7 @@
 import server from '../src/server' // Import Server/Application
 
 // Start application before running the test case
-beforeAll((done) => {
+beforeAll(async (done) => {
     server.events.on('start', () => {
         done();
     });
