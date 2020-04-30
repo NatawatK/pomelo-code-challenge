@@ -21,6 +21,39 @@ Design algoritm to place each child into children array of its parent
 - method: `POST`
 - body: 
 ```
+{
+    "0" : [
+        {
+            "id" Number,
+            "title": String,
+            "level": 0,
+            "children": [],
+            "parent_id" : Number/null
+        }
+    ],
+    "1" : [
+        {
+            "id" Number,
+            "title": String,
+            "level": 1,
+            "children": [],
+            "parent_id" : Number/null
+        }
+    ],
+    "2" : [
+        {
+            "id" Number,
+            "title": String,
+            "level": 2,
+            "children": [],
+            "parent_id" : Number/null
+        }
+    ],
+    ...
+}
+```
+For example:
+```
 {"0":
   [{"id": 10,
     "title": "House",
@@ -60,7 +93,7 @@ Design algoritm to place each child into children array of its parent
     "children": [],
     "parent_id": 12}]}
 ```
-- Response :
+- Response : `200 OK`
 ```
 [{"id": 10,
   "title": "House",
@@ -103,6 +136,6 @@ Design algoritm to place each child into children array of its parent
 Use Github Search API with pagination to find all repository with query `nodejs` and display 10 by 10
 
 - method : `GET`
-- path : `part2/`
+- path : `/part2`
 - queryString: `page(optinal)`
 - examples: `localhost:3000/part2?page=10`
